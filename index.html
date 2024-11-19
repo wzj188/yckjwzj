@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--  超文本标记语言,做网页的：HTML -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>个人存款计算器-吴智军</title>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		 
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+		 
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script>
+			function calc(){
+				// 取得存款金额和存款年限
+				money = document.getElementById("money").value; // "10000"
+				moneynum = parseInt(money); // 10000
+				year = document.getElementById("year").value;
+				if (year == "1") {
+					balance = moneynum * 0.0175 * 1;
+					total = balance + moneynum;
+				}
+				if (year == "2") {
+					balance = moneynum * 0.0225 * 2;
+					total = balance + moneynum;
+				}
+				if (year == "3") {
+					balance = moneynum * 0.0275 * 3;
+					total = balance + moneynum;
+				}
+				if (year == "4") {
+					balance = moneynum * 0.0275 * 4;
+					total = balance + moneynum;
+				}
+				if (year == "5") {
+					balance = moneynum * 0.0275 * 5;
+					total = balance + moneynum;
+				}
+				document.getElementById("balance").value=balance;
+				document.getElementById("total").value=total;
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<h3>个人存款计算软件</h3>
+			<div>
+				<label>存款金额</label>
+				<input class="form-control" type="text" id="money" placeholder="请输入存款金额"/>
+			</div>
+			<br>
+			<div>
+				<label>存款年限</label>
+				<select class="form-control" id="year">
+					<option value="1">一年</option>
+					<option value="2">二年</option>
+					<option value="3">三年</option>
+					<option value="4">四年</option>
+					<option value="5">五年</option>
+				</select>
+			</div>
+			<br>
+			<div>
+				<label>所得利息</label>
+				<input type="text" class="form-control" id="balance" readonly/>
+			</div>
+			<br>
+            <div>
+				<label>本息合计</label>
+				<input type="text" class="form-control" id="total" readonly/>
+			</div>
+			<br>
+			<div>
+				<button onclick="calc()" class="btn btn-danger btn-block">计算</button>
+			</div>
+			<br>
+			<div class="text-center">
+				开发者：太原科技大学 计算机学院 XXX
+			</div>
+		</div>
+		
+	</body>
+</html>
